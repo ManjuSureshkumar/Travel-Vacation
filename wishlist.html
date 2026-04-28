@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Vacation Website</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="navfoo.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="header">
+      <!-- Logo -->
+      <div class="header-top">
+        <div class="logo-section">
+          <img src="images/logo.png" alt="logo">
+          <span>Wanderwise</span>
+        </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search Destinations">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+      <div class="header-right">
+        <!-- ICONS -->
+          <div class="header-icons">
+                     <div class="profile" id="profileBtn">
+            <img src="images/profile.jpg" alt="profile">
+         <div class="profile-dropdown" id="dropdown">
+              <h4>My Accounts</h4>
+              <div class="line"></div>
+              <ul>
+                <li>Personal Information <span>›</span></li>
+                <li>My Booking <span>›</span></li>
+                <li>Password Manager <span>›</span></li>
+                <li>Logout <span>›</span></li>
+              </ul>
+            </div>
+          </div>
+            <div class="nav-heart">
+              <i class="fa-regular fa-heart"></i>
+              <span id="wishCount">0</span>
+            </div>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-regular fa-bell"></i>
+          </div>
+      </div>
+      </div>
+      <!--Second Row-->
+      <div class="bottom-row"> 
+        <div class="navbar">
+          <a href="home.html"   class="nav-item">Home <span class="dot"></span></a>
+          <a href="destinations.html" class="nav-item">Destinations<span class="dot"></span></a>
+          <a href="categories.html" class="nav-item">Categories<span class="dot"></span></a>
+          <a href="packages.html" class="nav-item">Packages<span class="dot"></span></a>
+          <a href="blogs.html" class="nav-item">Blogs<span class="dot"></span></a> 
+          <a href="contact.html" class="nav-item">Contact<span class="dot"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <section class="wishlist-section">
+
+  <h2 class="wish-title">Wishlist</h2>
+
+  <div class="wishlist-header">
+    <span>Product</span>
+    <span>Price</span>
+  </div>
+
+  <div id="wishlistContainer"></div>
+
+</section>
+
+    <footer class="footer">
+  <div class="footer-container">
+
+    <!-- LOGO -->
+    <div class="footer-col logo-col">
+      <img src="images/logo.png" alt="logo">
+      <h3>Wanderwise</h3>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <ul>
+        <li>Who We Are</li>
+        <li>Our Mission</li>
+        <li>How It Works</li>
+        <li>Success</li>
+        <li>Vacations</li>
+      </ul>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li>Browse</li>
+        <li>Packages</li>
+        <li>Categories</li>
+        <li>Support</li>
+        <li>Blog</li>
+      </ul>
+    </div>
+
+    <!-- EXPLORE -->
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li>Adventure</li>
+        <li>Beach</li>
+        <li>City Tours</li>
+        <li>Family</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col contact-col">
+      <h4>Contact & Social</h4>
+      <p>123 saik Street, Chennai, TN</p>
+      <p>+91-7867980-688</p>
+      <p>Wan@wanderwisetravel.com</p>
+    </div>
+
+    <!-- RIGHT SIDE (IMAGE + SOCIAL) -->
+    <div class="footer-col right-col">
+      <img src="images/footer.jpg" alt="travel">
+
+      <p class="follow">Follow Us On :</p>
+
+      <div class="social-icons">
+        <span>▶</span>
+        <span>G</span>
+        <span>f</span>
+        <span><img src="https://cdn-icons-png.flaticon.com/128/733/733579.png" alt="twitter"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 wanderwisevacation. All rights reserved.</p>
+    <p>Terms & Conditions | Privacy Policy</p>
+  </div>
+</footer>
+
+</div>
+</div>
+<script src="script.js"></script>
+<script>
+    
+window.onload = function () {
+
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  let container = document.getElementById("wishlistContainer");
+
+  container.innerHTML = "";
+
+  wishlist.forEach(item => {
+
+    container.innerHTML += `
+      <div class="wish-item">
+        <div class="wish-left">
+          <img src="${item.image}">
+          <h3>${item.title}</h3>
+        </div>
+
+        <div>₹${item.price}</div>
+      </div>
+    `;
+  });
+};
+</script>
+</body>
+</html>

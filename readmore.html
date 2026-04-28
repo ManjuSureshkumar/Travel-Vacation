@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Vacation Website</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="navfoo.css">
+  <style>
+    /* ===== MAIN LAYOUT ===== */
+.main-section {
+  display: flex;
+  gap: 40px;
+  padding: 50px;
+  align-items: flex-start;
+}
+
+/* ===== LEFT CARD ===== */
+.left-card {
+  position: relative;
+  width: 55%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #F31B03;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+/* OVERLAY CONTENT */
+.card-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+}
+
+.card-overlay h3 {
+  font-size: 24px;
+}
+
+.card-bottom {
+  background: #F31B03;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-text h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.days {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-right {
+  text-align: right;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.rating {
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+/* OFFER */
+.offer {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ===== RIGHT CONTENT ===== */
+.right-content {
+  width: 45%;
+  padding-top: 10px;
+}
+
+/* SMALL HEADING */
+.tagline {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* DESCRIPTION */
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* PERFECT FOR */
+.perfect-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* LIST */
+.perfect-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.perfect-list li {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+/* BUTTON */
+.buy-btn {
+  background: #F31B03;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ===== SCROLL SECTION ===== */
+.scroll-section {
+  padding: 50px;
+}
+
+.scroll-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* SCROLL CONTAINER */
+.scroll-container {
+  display: flex;
+  gap: 30px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+/* HIDE SCROLLBAR */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+.scroll-card {
+    width:100%;
+    min-width: 700px;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.scroll-card img {
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.scroll-card p {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="header">
+      <!-- Logo -->
+      <div class="header-top">
+        <div class="logo-section">
+          <img src="images/logo.png" alt="logo">
+          <span>Wanderwise</span>
+        </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search Destinations">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+      <div class="header-right">
+        <!-- ICONS -->
+          <div class="header-icons">
+                     <div class="profile" id="profileBtn">
+            <img src="images/profile.jpg" alt="profile">
+         <div class="profile-dropdown" id="dropdown">
+              <h4>My Accounts</h4>
+              <div class="line"></div>
+              <ul>
+                <li>Personal Information <span>›</span></li>
+                <li>My Booking <span>›</span></li>
+                <li>Password Manager <span>›</span></li>
+                <li>Logout <span>›</span></li>
+              </ul>
+            </div>
+          </div>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-regular fa-bell"></i>
+          </div>
+      </div>
+      </div>
+      <!--Second Row-->
+    <div class="bottom-row"> 
+        <div class="navbar">
+          <a href="home.html"   class="nav-item">Home <span class="dot"></span></a>
+          <a href="destinations.html" class="nav-item">Destinations<span class="dot"></span></a>
+          <a href="categories.html" class="nav-item">Categories<span class="dot"></span></a>
+          <a href="packages.html" class="nav-item">Packages<span class="dot"></span></a>
+          <a href="blogs.html" class="nav-item">Blogs<span class="dot"></span></a> 
+          <a href="contact.html" class="nav-item">Contact<span class="dot"></span></a>
+        </div>
+      </div>
+    </div>
+<section class="main-section">
+
+  <!-- LEFT SIDE -->
+  <div class="left-card">
+    <img src="images/bali.png" class="main-img">
+
+    <div class="card-bottom">
+        <div class="card-text">
+      <h3>Bali Vacation Trip</h3>
+      <p class="days">8 Days / 7 Nights</p>
+      <p class="price">Rs.25000</p>
+    </div>
+
+    <div class="card-right">
+      <div class="offer">50%Off</div>
+      <div class="rating">★★★★★</div>
+    </div>
+
+    </div>
+    
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right-content">
+      <h4 class="tagline"> The Island of the Gods – Where Paradise Meets Culture  </h4>
+  <p class="description">
+    Bali is more than just a destination — it’s an experience.
+    From its lush rice terraces and sacred temples to sun-drenched
+    beaches and vibrant markets, Bali offers the perfect balance of
+    relaxation, adventure, and cultural immersion.
+  </p>
+  <h3 class="perfect-title">Perfect For</h3>
+  <ul class="perfect-list">
+    <li>Couples and honeymooners</li>
+    <li>Solo travelers</li>
+    <li>Adventure seekers and culture lovers</li>
+    <li>Wellness retreats and digital nomads</li>
+  </ul>
+  <button class="buy-btn">Buy now</button>
+  </div>
+</section>
+
+<section class="scroll-section">
+
+  <h2 class="scroll-title">Explore More Destinations</h2>
+
+  <div class="scroll-container">
+
+    <div class="scroll-card"> <img src="images/balli.jpg"> <p>Bali Destination</p> </div>
+    <div class="scroll-card"> <img src="images/kumpano.jpg"> <p>Kumpano Destination</p> </div>
+    <div class="scroll-card"> <img src="images/califo.jpg"> <p>California Destination</p> </div>
+    <div class="scroll-card"> <img src="images/auth.jpg"> <p>Maldivies Destination</p> </div>
+    <div class="scroll-card"> <img src="images/dubai.jpg"> <p>Dubai Destination </p> </div>
+
+    <div class="scroll-card"> <img src="images/balli.jpg"> <p>Bali Destination</p> </div>
+    <div class="scroll-card"> <img src="images/kumpano.jpg"> <p>Kumpano Destination</p> </div>
+    <div class="scroll-card"> <img src="images/califo.jpg"> <p>California Destination</p> </div>
+    <div class="scroll-card"> <img src="images/auth.jpg"> <p>Maldivies Destination</p> </div>
+    <div class="scroll-card"> <img src="images/dubai.jpg"> <p>Dubai Destination </p> </div>
+
+
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- LOGO -->
+    <div class="footer-col logo-col">
+      <img src="images/logo.png" alt="logo">
+      <h3>Wanderwise</h3>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <ul>
+        <li>Who We Are</li>
+        <li>Our Mission</li>
+        <li>How It Works</li>
+        <li>Success</li>
+        <li>Vacations</li>
+      </ul>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li>Browse</li>
+        <li>Packages</li>
+        <li>Categories</li>
+        <li>Support</li>
+        <li>Blog</li>
+      </ul>
+    </div>
+
+    <!-- EXPLORE -->
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li>Adventure</li>
+        <li>Beach</li>
+        <li>City Tours</li>
+        <li>Family</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col contact-col">
+      <h4>Contact & Social</h4>
+      <p>123 saik Street, Chennai, TN</p>
+      <p>+91-7867980-688</p>
+      <p>Wan@wanderwisetravel.com</p>
+    </div>
+
+    <!-- RIGHT SIDE (IMAGE + SOCIAL) -->
+    <div class="footer-col right-col">
+      <img src="images/footer.jpg" alt="travel">
+
+      <p class="follow">Follow Us On :</p>
+
+      <div class="social-icons">
+        <span>▶</span>
+        <span>G</span>
+        <span>f</span>
+        <span><img src="https://cdn-icons-png.flaticon.com/128/733/733579.png" alt="twitter"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 wanderwisevacation. All rights reserved.</p>
+    <p>Terms & Conditions | Privacy Policy</p>
+  </div>
+</footer>
+
+</div>
+</div>
+<script src="script.js"></script>
+<script>
+const container = document.querySelector(".scroll-container");
+
+let speed = 0.5; // slower = smoother
+
+function autoScroll() {
+  container.scrollLeft += speed;
+
+  // reset smoothly when half reached
+  if (container.scrollLeft >= container.scrollWidth / 2) {
+    container.scrollLeft = 0;
+  }
+
+  requestAnimationFrame(autoScroll);
+}
+
+autoScroll();
+</script>
+</body>
+</html>

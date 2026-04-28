@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Vacation Website</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="navfoo.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="header">
+      <!-- Logo -->
+      <div class="header-top">
+        <div class="logo-section">
+          <img src="images/logo.png" alt="logo">
+          <span>Wanderwise</span>
+        </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search Destinations">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+      <div class="header-right">
+        <!-- ICONS -->
+          <div id="loggedInUI" class="header-icons">
+            <div class="profile" id="profileBtn">
+            <img src="images/profile.jpg" alt="profile">
+            <!-- DROPDOWN -->
+            <div class="profile-dropdown" id="dropdown">
+              <h4>My Accounts</h4>
+              <div class="line"></div>
+
+              <ul>
+                <li>Personal Information <span>-›</span></li>
+                <li>My Booking <span>-›</span></li>
+                <li>Password Manager <span>-›</span></li>
+                <li>Logout <span>-›</span></li>
+              </ul>
+            </div>
+          </div>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-regular fa-bell"></i>
+          </div>
+      </div>
+      </div>
+      <!--Second Row-->
+      <div class="bottom-row"> 
+        <div class="navbar">
+          <a href="home.html"   class="nav-item">Home <span class="dot"></span></a>
+          <a href="destinations.html" class="nav-item">Destinations<span class="dot"></span></a>
+          <a href="categories.html" class="nav-item">Categories<span class="dot"></span></a>
+          <a href="packages.html" class="nav-item">Packages<span class="dot"></span></a>
+          <a href="blogs.html" class="nav-item">Blogs<span class="dot"></span></a> 
+          <a href="contact.html" class="nav-item">Contact<span class="dot"></span></a>
+        </div>
+      </div>
+    </div> <!--Header End-->
+
+<!-- Personal Information -->
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <h1 class="title">My Account</h1>
+  <div class="profile-circle"></div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="box active" onclick="showSection(event, 'personal')">Personal Information</div>
+    <div class="box" onclick="showSection(event, 'booking')">My Booking</div>
+    <div class="box" onclick="showSection(event, 'password')">Password Manager</div>
+    <div class="box" onclick="showSection(event, 'logout')">Logout</div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="content">
+
+    <!-- PERSONAL INFO -->
+    <div id="personal" class="section active">
+
+      <div class="form">
+        <div class="row">
+          <div class="field">
+            <label>First Name</label>
+            <input type="text">
+          </div>
+
+          <div class="field">
+            <label>Last Name</label>
+            <input type="text">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>E-mail</label>
+          <input type="text" placeholder="Enter your e-mail">
+        </div>
+
+        <div class="field">
+          <label>Phone</label>
+          <input type="text" placeholder="Enter your phone number">
+        </div>
+
+        <div class="field">
+          <label>Gender</label>
+          <input type="text" placeholder="Enter your gender">
+        </div>
+
+        <button class="btn">Update Change</button>
+      </div>
+
+    </div>
+
+    <!-- BOOKING SECTION -->
+    <div id="booking" class="section">
+
+      <h2 class="booking-title">My Booking</h2>
+
+      <div class="booking-box">
+
+  <!-- TOP LABELS -->
+  <div class="booking-row heading">
+    <span>Order ID</span>
+    <span>Payment Method</span>
+    <span>Transaction Id</span>
+    <span>Travelling Trip Date</span>
+  </div>
+
+  <!-- DATA -->
+  <div class="booking-row">
+    <span>#SJKD456FH</span>
+    <span>Credit Card</span>
+    <span>TF59DHJK</span>
+    <span>28 July 2025</span>
+  </div>
+
+</div>
+<h3 class="destination-title">Destination</h3>
+      <!-- CARD -->
+      <div class="booking-card">
+        <img src="images/footer.jpg" alt="trip">
+
+        <div class="booking-info">
+          <h3>Bali Vacation Trip</h3>
+          <p>8 Days / 7 Nights</p>
+          <p>Business Class</p>
+        </div>
+
+        <div class="booking-price">
+          ₹20,000
+        </div>
+      </div>
+
+      <!-- STATUS -->
+      <div class="booking-status">
+        <div class="status-box">Accepted</div>
+        <p>Your order has been accepted</p>
+      </div>
+
+    </div>
+
+    <!-- PASSWORD -->
+    <div id="password" class="section">
+      <div class="form">
+        <div class="field">
+          <label>Password*</label>
+          <div class="password-row">
+            <input type="password" id="currentPassword" placeholder="Enter password">
+            <span class="forgot-link" onclick="forgotPassword()">
+              Forget Password?
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>New Password*</label>
+          <input type="password" id="newPassword" placeholder="Enter password">
+        </div>
+        
+        <div class="field">
+          <label>Confirm New Password*</label>
+          <input type="password" id="confirmPassword" placeholder="Enter password">
+        </div>
+
+        <button class="btn" onclick="updatePassword()">Update Password</button>
+      </div>
+    </div>
+
+  <div id="logout" class="section">
+
+  <h2 class="booking-title">Log Out</h2>
+
+  <p style="font-size:20px; margin:20px 0;">
+    Are you sure you want to log out?
+  </p>
+
+  <button class="btn" onclick="logoutUser()">
+    Yes, Logout
+  </button>
+
+</div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- LOGO -->
+    <div class="footer-col logo-col">
+      <img src="images/logo.png" alt="logo">
+      <h3>Wanderwise</h3>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <ul>
+        <li>Who We Are</li>
+        <li>Our Mission</li>
+        <li>How It Works</li>
+        <li>Success</li>
+        <li>Vacations</li>
+      </ul>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li>Browse</li>
+        <li>Packages</li>
+        <li>Categories</li>
+        <li>Support</li>
+        <li>Blog</li>
+      </ul>
+    </div>
+
+    <!-- EXPLORE -->
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li>Adventure</li>
+        <li>Beach</li>
+        <li>City Tours</li>
+        <li>Family</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col contact-col">
+      <h4>Contact & Social</h4>
+      <p>123 saik Street, Chennai, TN</p>
+      <p>+91-7867980-688</p>
+      <p>Wan@wanderwisetravel.com</p>
+    </div>
+
+    <!-- RIGHT SIDE (IMAGE + SOCIAL) -->
+    <div class="footer-col right-col">
+      <img src="images/footer.jpg" alt="travel">
+
+      <p class="follow">Follow Us On :</p>
+
+      <div class="social-icons">
+        <span>▶</span>
+        <span>G</span>
+        <span>f</span>
+        <span><img src="https://cdn-icons-png.flaticon.com/128/733/733579.png" alt="twitter"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 wanderwisevacation. All rights reserved.</p>
+    <p>Terms & Conditions | Privacy Policy</p>
+  </div>
+</footer>
+
+</div>
+</div>
+<script src="script.js">
+
+</script>
+</body>
+</html>    

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Vacation Website</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+/* RIGHT SIDE WRAPPER */
+.right-section {
+  display: flex;
+  justify-content: left; 
+  align-items: flex-start;
+  gap: 50px;
+  margin: 60px 80px;
+}
+
+/* ORDER SUMMARY */
+.order-summary {
+  width: 100%;
+  max-width: 432px;
+  background: #F31B03;
+  color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 3px 4px 4px rgba(0,0,0,0.25);
+}
+
+.order-summary h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* LINES */
+.line {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  margin: 10px 0;
+}
+
+.line.bold {
+  border-bottom: 2px solid rgba(0,0,0,0.5);
+}
+
+/* ITEMS */
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  font-size: 20px;
+}
+
+.total {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+/* PAYMENT SECTION */
+.payment-section {
+  width:100%;
+  max-width: 200px;
+}
+
+/* LABEL */
+.payment-section label {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* DROPDOWN */
+.payment-section select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* UPI OPTIONS */
+.upi-options {
+  margin-top: 10px;
+  display: none;
+}
+
+/* CARD CONTAINER */
+.card-payment {
+  width: 100%;
+  max-width: 850px;    
+  margin: 40px auto;   
+  background: #F31B03;
+  padding: 40px;
+  border-radius: 10px;
+  color: #fff;
+  display: none;
+}
+
+/* TITLE */
+.card-payment h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+/* ROW */
+.card-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+/* INPUT GROUP */
+.card-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL */
+.card-group label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* INPUT */
+.card-group input {
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  padding: 10px;
+}
+
+/* PLACEHOLDER COLOR */
+.card-group input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+/* BUTTON */
+.proceed-btn {
+  display: block;
+  margin: 20px auto;  /* ✅ centers horizontally */
+  padding: 12px 25px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.proceed-btn:hover {
+  background: #ddd;
+}
+
+/* SUCCESS CONTAINER */
+.payment-success {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* overlay */
+  justify-content: center;
+  align-items: center;
+}
+
+/* BOX */
+.success-box {
+  width: 500px;
+  background: #F31B03;
+  padding: 50px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* CHECK CIRCLE */
+.check-circle {
+  width: 130px;
+  height: 130px;
+  background: #fff;
+  color: #F31B03;
+  border-radius: 50%;
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 30px;
+}
+
+/* TEXT */
+.success-box h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.success-box p {
+  font-size: 20px;
+}
+
+/* QR SECTION */
+.qr-section {
+  margin-top: 20px;
+  text-align: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* TEXT */
+.qr-section p {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* QR IMAGE */
+.qr-section img {
+  width: 150px;
+  height: 150px;
+}
+</style>
+  
+  <link rel="stylesheet" href="navfoo.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="header">
+      <!-- Logo -->
+      <div class="header-top">
+        <div class="logo-section">
+          <img src="images/logo.png" alt="logo">
+          <span>Wanderwise</span>
+        </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search Destinations">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+      <div class="header-right">
+        <!-- ICONS -->
+          <div class="header-icons">
+                     <div class="profile" id="profileBtn">
+            <img src="images/profile.jpg" alt="profile">
+         <div class="profile-dropdown" id="dropdown">
+              <h4>My Accounts</h4>
+              <div class="line"></div>
+              <ul>
+                <li>Personal Information <span>›</span></li>
+                <li>My Booking <span>›</span></li>
+                <li>Password Manager <span>›</span></li>
+                <li>Logout <span>›</span></li>
+              </ul>
+            </div>
+          </div>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-regular fa-bell"></i>
+          </div>
+      </div>
+      </div>
+      <!--Second Row-->
+      <div class="bottom-row"> 
+        <div class="navbar">
+          <a href="home.html"   class="nav-item">Home <span class="dot"></span></a>
+          <a href="destinations.html" class="nav-item">Destinations<span class="dot"></span></a>
+          <a href="categories.html" class="nav-item">Categories<span class="dot"></span></a>
+          <a href="packages.html" class="nav-item">Packages<span class="dot"></span></a>
+          <a href="blogs.html" class="nav-item">Blogs<span class="dot"></span></a> 
+          <a href="contact.html" class="nav-item">Contact<span class="dot"></span></a>
+        </div>
+      </div>
+    </div>
+
+<div class="right-section">
+
+  <!-- ORDER SUMMARY -->
+  <div class="order-summary">
+    <h3>Order Summary</h3>
+    <div class="item"><span>Package</span><span id="pkgName"></span></div>
+    <div class="item"><span>Duration</span><span id="pkgDays"></span></div>
+    <div class="item"><span>Subtotal</span><span id="subtotal"></span></div>
+    <div class="item"><span>Taxes</span><span id="tax"></span></div>
+    <div class="item"><span>Discount</span><span id="discount"></span></div>
+    <div class="item total"><span>Total</span><span id="total"></span></div>  
+  </div>
+
+  <!-- PAYMENT -->
+  <div class="payment-section">
+    <label>Payment</label>
+
+    <select id="paymentMethod" onchange="handlePaymentChange()">
+      <option value="">Select Payment</option>
+      <option value="credit">Credit Card</option>
+      <option value="debit">Debit Card</option>
+      <option value="upi">UPI</option>
+    </select>
+
+    <div id="upiOptions" class="upi-options">
+      <select>
+        <option>GPay</option>
+        <option>Paytm</option>
+        <option>PhonePe</option>
+      </select>
+      <div class="qr-section">
+        <p>Scan & Pay</p>
+        <img src="images/qr.png" alt="QR Code">
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ✅ CARD OUTSIDE (IMPORTANT) -->
+<div id="cardPayment" class="card-payment">
+
+  <h3>Card Payment</h3>
+
+  <div class="card-row">
+    <div class="card-group">
+      <label>Card Holder Name</label>
+      <input type="text">
+    </div>
+
+    <div class="card-group">
+      <label>Card Number</label>
+      <input type="text">
+    </div>
+  </div>
+
+  <div class="card-row">
+    <div class="card-group">
+      <label>Expiry</label>
+      <input type="text">
+    </div>
+
+    <div class="card-group">
+      <label>CVV</label>
+      <input type="password">
+    </div>
+  </div>
+
+  <button class="proceed-btn" onclick="paymentSuccess()">Proceed</button>
+
+</div>
+
+<div id="paymentSuccess" class="payment-success">
+
+  <div class="success-box">
+    <span class="close-btn" onclick="closeSuccess()">✖</span>
+    <div class="check-circle">✔ </div>
+        <h2>Payment Done Successfully</h2>
+        <p>Order has been placed</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- LOGO -->
+    <div class="footer-col logo-col">
+      <img src="images/logo.png" alt="logo">
+      <h3>Wanderwise</h3>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <ul>
+        <li>Who We Are</li>
+        <li>Our Mission</li>
+        <li>How It Works</li>
+        <li>Success</li>
+        <li>Vacations</li>
+      </ul>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li>Browse</li>
+        <li>Packages</li>
+        <li>Categories</li>
+        <li>Support</li>
+        <li>Blog</li>
+      </ul>
+    </div>
+
+    <!-- EXPLORE -->
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li>Adventure</li>
+        <li>Beach</li>
+        <li>City Tours</li>
+        <li>Family</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col contact-col">
+      <h4>Contact & Social</h4>
+      <p>123 saik Street, Chennai, TN</p>
+      <p>+91-7867980-688</p>
+      <p>Wan@wanderwisetravel.com</p>
+    </div>
+
+    <!-- RIGHT SIDE (IMAGE + SOCIAL) -->
+    <div class="footer-col right-col">
+      <img src="images/footer.jpg" alt="travel">
+
+      <p class="follow">Follow Us On :</p>
+
+      <div class="social-icons">
+        <span>▶</span>
+        <span>G</span>
+        <span>f</span>
+        <span><img src="https://cdn-icons-png.flaticon.com/128/733/733579.png" alt="twitter"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 wanderwisevacation. All rights reserved.</p>
+    <p>Terms & Conditions | Privacy Policy</p>
+  </div>
+</footer>
+
+</div>
+</div>
+<script src="script.js"></script>
+<script src="paymentsec.js"></script>
+</body>
+</html>

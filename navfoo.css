@@ -1,0 +1,422 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background: black;
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  padding:0 40px;
+}
+
+.wrapper {
+  width: 100%;           
+  max-width: 1500px;    
+  margin: 0 auto;
+  background: white;
+}
+
+.container {
+  width: 100%;
+}
+
+.header {
+  background: #fcfcfc;
+  padding: 15px 30px;
+}
+
+/* ===== TOP ROW ===== */
+.header-top {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* LOGO */
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0; 
+}
+
+.logo-section img {
+  width: 145px;
+  height: auto;
+  display: block;
+}
+
+.logo-section span {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* SEARCH */
+.search-box {
+  flex: 1;
+  width: 100%;
+  max-width: 800px;
+  height: 75px;
+  margin: 0;              /* center horizontally */
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  color: white;
+  background: #F31B03;
+  font-size: 24px;
+  font-weight: 600;
+
+  padding-left: 40px;   /* text spacing */
+  padding-right: 90px;  /* space for icon */
+}
+
+.search-box input::placeholder {
+  color: white;
+}
+
+/* ICON FIX */
+.search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color:white;
+  width: 45px;
+}
+
+/* HEADER RIGHT */
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+/* ICONS GROUP */
+.header-icons {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+/* ICON STYLE */
+.header-icons i {
+  font-size: 26px;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.header-icons i:hover {
+  color: #F31B03;
+  transform: scale(1.1);
+}
+
+/* PROFILE IMAGE */
+.profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.register-btn {
+  width: 179px;
+  height: 58px;
+  background: #F31B03;
+  padding: 15px 25px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-heart {
+  position: relative;
+}
+
+#wishCount {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* ===== SECOND ROW ===== */
+.bottom-row {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 200px;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: center;    
+  align-items: center;
+  width: 100%;    
+  gap: 50px;     
+  transform: translateX(-80px);      
+  margin-left: -150px;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  color: #000;
+  position: relative;
+}
+
+.nav-item {
+  position: relative;
+  font-size: 24px;
+  font-weight: 500;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-item.active {
+  color: black;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 2px;
+  background: black;
+  transform: scaleX(0);
+  transition: 0.3s;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+  width: 6px;
+  height: 6px;
+  background: black;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.nav-item span.dot {
+  position: absolute;
+  right: 0;
+  bottom: -9px;
+  width: 6px;
+  height: 6px;
+  background: black;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.nav-item.active::after {
+  transform: scaleX(1);
+}
+
+.nav-item.active::before,
+.nav-item.active span.dot {
+   opacity: 1;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 40px 60px 15px;
+}
+
+/* GRID LAYOUT (BETTER THAN FLEX HERE) */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1.5fr 1.2fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* LOGO */
+.logo-col img {
+  width: 130px;
+}
+.logo-col h3 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+/* HEADINGS */
+.footer-col h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* LIST */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-col ul li {
+  margin-bottom: 6px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #ccc;
+}
+
+/* CONTACT */
+.contact-col p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* RIGHT IMAGE */
+.right-col {
+  text-align: center;
+}
+.right-col img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* PERFECT CIRCLE */
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* FOLLOW */
+.follow {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* SOCIAL */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.social-icons span {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: 5px;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  gap: 5px;
+}
+
+/* PROFILE */
+.profile {
+  position: relative;
+  cursor: pointer;
+}
+
+/* IMAGE */
+.profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* DROPDOWN BOX */
+.profile-dropdown {
+  position: absolute;
+  top: 80px;
+  right: 0;
+
+  width: 320px;
+  background: #F31B03;
+  border-radius: 15px;
+  padding: 20px;
+
+  display: none;
+  z-index: 1000;
+}
+
+/* SHOW CLASS */
+.profile-dropdown.show {
+  display: block;
+}
+
+/* TITLE */
+.profile-dropdown h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* LINE */
+.profile-dropdown .line {
+  height: 1px;
+  background: white;
+  margin: 10px 0 15px;
+}
+
+/* LIST */
+.profile-dropdown ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-dropdown ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  font-size: 24px;
+  color: white;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+/* HOVER EFFECT */
+.profile-dropdown ul li:hover {
+  opacity: 0.8;
+}
+
+ 

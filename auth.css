@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background: #f9f3f3;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MAIN */
+.main-container {
+  width: 1200px;
+  height: 560px;
+  display: flex;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* LEFT FORM */
+.form-container {
+  width: 65%;
+  background: #fff;
+  margin: 30px;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 7px 6px 10px rgba(0,0,0,0.2);
+}
+
+.form-container h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* INPUTS */
+.form-container input {
+  width: 100%;
+  height: 55px;
+  margin-bottom: 20px;
+  border: 1.5px solid #F31B03;
+  border-radius: 14px;
+  padding: 0 20px;
+  font-size: 16px;
+  background: white;
+  outline: none;
+}
+
+/* ACTION ROW */
+.action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  background: #F31B03;
+  color: white;
+  border: none;
+  padding: 12px 45px;
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* FORGOT */
+.forgot {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+}
+
+/* DIVIDER */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0;
+  gap: 10px;
+}
+
+.divider span {
+  width: 80px;
+  height: 1px;
+  background: #F31B03;
+  opacity: 0.5;
+}
+
+.divider p {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* SOCIAL BOX */
+.social-box {
+  border: 1.5px solid #F31B03;
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* ICONS */
+.social-box i {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* COLORS */
+.fa-google { color: #EA4335; }
+.fa-facebook-f { color: #1877F2; }
+
+.fa-instagram {
+  background: radial-gradient(circle at 30% 30%, #FFDD55, #FF543E, #C837AB);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fa-twitter { color: #1DA1F2; }
+
+/* BOTTOM TEXT */
+.bottom-text {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.bottom-text a {
+  color: #F31B03;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* RIGHT IMAGE */
+.image-container {
+  width: 35%;
+  background: url(images/auth.jpg) center/cover no-repeat;
+}

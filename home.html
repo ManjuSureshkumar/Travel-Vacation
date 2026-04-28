@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Vacation Website</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="navfoo.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="header">
+      <!-- Logo -->
+      <div class="header-top">
+        <div class="logo-section">
+          <img src="images/logo.png" alt="logo">
+          <span>Wanderwise</span>
+        </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search Destinations">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+      <div class="header-right">
+        <!-- ICONS -->
+          <div class="header-icons">
+                     <div class="profile" id="profileBtn">
+            <img src="images/profile.jpg" alt="profile">
+         <div class="profile-dropdown" id="dropdown">
+              <h4>My Accounts</h4>
+              <div class="line"></div>
+              <ul>
+                <li>Personal Information <span>›</span></li>
+                <li>My Booking <span>›</span></li>
+                <li>Password Manager <span>›</span></li>
+                <li>Logout <span>›</span></li>
+              </ul>
+            </div>
+          </div>
+            <div class="nav-heart">
+              <i class="fa-regular fa-heart"></i>
+              <span id="wishCount">0</span>
+            </div>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-regular fa-bell"></i>
+          </div>
+      </div>
+      </div>
+      <!--Second Row-->
+      <div class="bottom-row"> 
+        <div class="navbar">
+          <a href="home.html"   class="nav-item">Home <span class="dot"></span></a>
+          <a href="destinations.html" class="nav-item">Destinations<span class="dot"></span></a>
+          <a href="categories.html" class="nav-item">Categories<span class="dot"></span></a>
+          <a href="packages.html" class="nav-item">Packages<span class="dot"></span></a>
+          <a href="blogs.html" class="nav-item">Blogs<span class="dot"></span></a> 
+          <a href="contact.html" class="nav-item">Contact<span class="dot"></span></a>
+        </div>
+      </div>
+    </div>
+
+  <!-- ********* HERO SECTION ********* -->
+   <section class="hero dark-hero">
+    <img src="images/hero.jpg" alt="Hero Image">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>
+          Explore the World <br>
+          <span>Your Way</span>
+        </h1>
+        <p>
+          Find unforgettable trips, adventures, and escapes around the globe.
+        </p>
+        <div class="hero-buttons">
+          <a href="destinations.html" class="hero-btn primary">Plan Your Trip</a>
+          <a href="enquiry.html" class="hero-btn secondary">
+          Enquiry
+          <span class="arrow">➜</span>
+          </a>
+        </div>
+      </div>
+  </section>
+
+  <section class="image-strip">
+    <img src="images/hero-con.jpg" alt="travel strip">
+  </section>
+
+  <section class="why">
+  <h2>Why Choose Us!</h2>
+
+  <div class="why-container">
+
+    <div class="why-card">
+      <img src="images/why1.png" alt="">
+      <p>Trusted by 1Million travellers</p>
+    </div>
+
+    <div class="why-card">
+      <img src="images/why2.png" alt="">
+      <p>Best Price Guarantee</p>
+    </div>
+
+    <div class="why-card">
+      <img src="images/why3.png" alt="">
+      <p>Certified Travel Experts</p>
+    </div>
+
+    <div class="why-card">
+      <img src="images/why4.png" alt="">
+      <p>24/7 Customer Support</p>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-container">
+
+    <div class="about-header">
+      <div class="line"></div>
+      <h2>ABOUT US</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="about-content">
+      <p>
+        At WanderWise, we believe that travel is more than just reaching a destination—it's about experiencing the journey, creating lasting memories, and discovering new perspectives.
+      </p>
+
+      <p>
+        Founded by passionate explorers and travel experts, WanderWise was built to simplify the way you plan, book, and enjoy your trips. Whether you're dreaming of a serene beach retreat, an adrenaline-pumping adventure, or a culturally rich city escape, our platform connects you with handpicked experiences tailored to your interests.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="destinations">
+  <div class="dest-container">
+
+    <h2 class="dest-title">Popular Destinations</h2>
+
+    <div class="dest-grid">
+
+      <div class="dest-card">
+        <img src="images/paris.png" alt="Paris">
+        <p>Paris</p>
+      </div>
+
+      <div class="dest-card">
+        <img src="images/bali.png" alt="Bali">
+        <p>Bali</p>
+      </div>
+
+      <div class="dest-card">
+        <img src="images/capetown.jpg" alt="Cape Town">
+        <p>Cape Town</p>
+      </div>
+
+      <div class="dest-card">
+        <img src="images/rome.jpg" alt="Rome">
+        <p>Rome</p>
+      </div>
+
+      <div class="dest-card">
+        <img src="images/california.jpg" alt="California">
+        <p>California</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="packages">
+  <div class="packages-container">
+
+    <h2 class="packages-title">Exclusive Packages</h2>
+
+    <div class="packages-row">
+
+      <!-- CARD -->
+      <div class="card">
+        <div class="card-img">
+          <img src="images/paris.png" alt="">
+          <span class="heart"onclick="toggleWishlist(this, 'Paris')">❤</span>
+        </div>
+        <div class="card-body">
+          <h3>Paris</h3>
+          <p>6 Days / 5 Nights</p>
+          <span>$1200</span>
+          <button onclick="bookNow('Paris','6 Days / 5 Nights',1200,'images/paris.png')">Book now</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/bali.png" alt="">
+          <span class="heart" onclick="toggleWishlist(this, 'Bali')">❤</span>
+        </div>
+        <div class="card-body">
+          <h3>Bali</h3>
+          <p>8 Days / 7 Nights</p>
+          <span>$2200</span>
+          <button onclick="bookNow('Bali','8 Days /7 Nights',2200,'images/bali.png')">Book now</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/capetown.jpg" alt="">
+          <span class="heart" onclick="toggleWishlist(this, 'Cape Town')">❤</span>
+        </div>
+        <div class="card-body">
+          <h3>Cape Town</h3>
+          <p>7 Days / 6 Nights</p>
+          <span>$1800</span>
+          <button onclick="bookNow('Cape Town','7 Days / 6 Nights',1800,'images/capetown.jpg')">Book now</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/rome.jpg" alt="">
+          <span class="heart" onclick="toggleWishlist(this, 'Rome')">❤</span>
+        </div>
+        <div class="card-body">
+          <h3>Rome</h3>
+          <p>6 Days / 5 Nights</p>
+          <span>$1200</span>
+          <button onclick="bookNow('Rome','6 Days / 5 Nights',1200,'images/rome.jpg')">Book now</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="test-container">
+
+    <h2 class="test-title">What Say Our Clients</h2>
+
+    <div class="test-box">
+
+      <!-- CARD 1 -->
+      <div class="test-card">
+        <img src="images/user1.jpg" alt="">
+        <div>
+          <p>
+            This travel agency made our vacation unforgettable! Excellent service and a fantastic itinerary. Highly recommend.
+          </p>
+          <div class="stars">★★★★★</div>
+          <h4>Emily R.</h4>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="test-card">
+        <img src="images/user2.jpg" alt="">
+        <div>
+          <p>
+            This travel agency made our vacation unforgettable! Excellent service.
+          </p>
+          <div class="stars">★★★★★</div>
+          <h4>David W.</h4>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="test-card">
+        <img src="images/user3.jpg" alt="">
+        <div>
+          <p>
+            Amazing experience! Everything was well organized and smooth.
+          </p>
+          <div class="stars">★★★★★</div>
+          <h4>Andreya S.</h4>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- LOGO -->
+    <div class="footer-col logo-col">
+      <img src="images/logo.png" alt="logo">
+      <h3>Wanderwise</h3>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <ul>
+        <li>Who We Are</li>
+        <li>Our Mission</li>
+        <li>How It Works</li>
+        <li>Success</li>
+        <li>Vacations</li>
+      </ul>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li>Browse</li>
+        <li>Packages</li>
+        <li>Categories</li>
+        <li>Support</li>
+        <li>Blog</li>
+      </ul>
+    </div>
+
+    <!-- EXPLORE -->
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li>Adventure</li>
+        <li>Beach</li>
+        <li>City Tours</li>
+        <li>Family</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col contact-col">
+      <h4>Contact & Social</h4>
+      <p>123 saik Street, Chennai, TN</p>
+      <p>+91-7867980-688</p>
+      <p>Wan@wanderwisetravel.com</p>
+    </div>
+
+    <!-- RIGHT SIDE (IMAGE + SOCIAL) -->
+    <div class="footer-col right-col">
+      <img src="images/footer.jpg" alt="travel">
+
+      <p class="follow">Follow Us On :</p>
+
+      <div class="social-icons">
+        <span>▶</span>
+        <span>G</span>
+        <span>f</span>
+        <span><img src="https://cdn-icons-png.flaticon.com/128/733/733579.png" alt="twitter"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 wanderwisevacation. All rights reserved.</p>
+    <p>Terms & Conditions | Privacy Policy</p>
+  </div>
+</footer>
+
+</div>
+</div>
+<script src="script.js"></script>
+<script>
+ 
+function toggleWishlist(el, place) {
+
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+  if (wishlist.includes(place)) {
+    wishlist = wishlist.filter(item => item !== place);
+    el.classList.remove("active");
+    el.innerHTML = "♡";
+  } else {
+    wishlist.push(place);
+    el.classList.add("active");
+    el.innerHTML = "❤";
+  }
+
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+  updateWishlistCount(); // 🔥 update navbar
+}
+ 
+function updateWishlistCount() {
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  document.getElementById("wishCount").innerText = wishlist.length;
+}
+
+function bookNow(title, days, price, image) {
+
+  const booking = {
+    title: title,
+    days: days,
+    price: price,
+    image: image,
+    tax: 0,
+    discount: 500
+  };
+
+  // Save data
+  localStorage.setItem("bookingData", JSON.stringify(booking));
+
+  // Redirect
+  window.location.href = "paymentsec.html";
+}
+</script>
+</body>
+</html>

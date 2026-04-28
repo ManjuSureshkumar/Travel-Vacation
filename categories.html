@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Vacation Website</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* LAYOUT */
+.categories-container {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 350px;
+  background: #f31b03;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* TITLES */
+.sidebar h2 {  font-size: 26px;  font-weight: 700;}
+.sidebar h3 {  font-size: 20px;  font-weight: 600;}
+
+/* SECTION */
+.section {   display: flex;   flex-direction: column;}
+
+/* PRICE */
+.price-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* TWO COLUMN */
+.two-col { display: flex;   justify-content: space-between; gap:12px;}
+.two-col div {   width: 145px;}
+
+.two-col label {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.two-col input {
+  width: 149px;
+  height: 29px;
+  border-radius: 55px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-size: 13px;
+  background: white;
+}
+
+/* INPUTS */
+input[type="text"],
+input[type="date"] {
+  width : 145px;
+  height: 29px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background: white;
+}
+
+/* RANGE */
+input[type="range"] {
+  width: 100%;
+  color: black;
+}
+
+/* LABELS */
+label {
+  display: flex;
+  align-items: center;
+}
+
+/* CHECKBOX / RADIO */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: white;
+  width: 16px;
+  height: 16px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* BUTTON */
+.submit-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background: #eee;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* TARGET ONLY THESE FILTER SECTIONS */
+.trip-section h3,
+.accommodation-section h3,
+.city-section h3,
+.offer-section h3,
+.suitable-section h3,
+.rating-section h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* LABEL TEXT STYLE */
+.trip-section label,
+.accommodation-section label,
+.city-section label,
+.offer-section label,
+.suitable-section label,
+.rating-section label {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* CHECKBOX / RADIO SIZE */
+.trip-section input,
+.accommodation-section input,
+.city-section input,
+.offer-section input,
+.suitable-section input,
+.rating-section input {
+  width: 18px;
+  height: 18px;
+  gap:4px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.card-grid {
+  flex:1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 100px;
+}
+
+/* CARD */
+.figma-card {
+  position: relative;
+  width: 230px;
+  height: 290px;
+  background: #F31B03;
+  border-radius: 18px;
+  box-shadow: 8px 6px 4px rgba(0,0,0,0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGE */
+.card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+/* TITLE */
+.card-title {
+  margin: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* DAYS */
+.card-days {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  margin: 0 10px;
+}
+
+/* PRICE */
+.card-price {
+  font-size: 15px;
+  font-weight: 600;
+  color: #F3FFC5;
+  margin: 5px;
+}
+
+/* BUTTON */
+.card-btn {
+  padding: 6px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin:10px;
+  background: white;
+}
+
+/* HEART */
+.wishlist {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #F31B03;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wishlist i {
+  color: white;
+}
+
+  </style>
+  <link rel="stylesheet" href="navfoo.css">
+  <style>
+    
+  </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="header">
+      <!-- Logo -->
+      <div class="header-top">
+        <div class="logo-section">
+          <img src="images/logo.png" alt="logo">
+          <span>Wanderwise</span>
+        </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search Destinations">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </div>
+      <div class="header-right">
+        <!-- ICONS -->
+          <div class="header-icons">
+                     <div class="profile" id="profileBtn">
+            <img src="images/profile.jpg" alt="profile">
+         <div class="profile-dropdown" id="dropdown">
+              <h4>My Accounts</h4>
+              <div class="line"></div>
+              <ul>
+                <li>Personal Information <span>›</span></li>
+                <li>My Booking <span>›</span></li>
+                <li>Password Manager <span>›</span></li>
+                <li>Logout <span>›</span></li>
+              </ul>
+            </div>
+          </div>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-regular fa-bell"></i>
+          </div>
+      </div>
+      </div>
+      <!--Second Row-->
+     <div class="bottom-row"> 
+        <div class="navbar">
+          <a href="home.html"   class="nav-item">Home <span class="dot"></span></a>
+          <a href="destinations.html" class="nav-item">Destinations<span class="dot"></span></a>
+          <a href="categories.html" class="nav-item">Categories<span class="dot"></span></a>
+          <a href="packages.html" class="nav-item">Packages<span class="dot"></span></a>
+          <a href="blogs.html" class="nav-item">Blogs<span class="dot"></span></a> 
+          <a href="contact.html" class="nav-item">Contact<span class="dot"></span></a>
+        </div>
+      </div>
+    </div>
+
+<!-- MAIN -->
+<div class="categories-container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <h2>Filter Section</h2>
+
+    <!-- PRICE -->
+    <div class="section">
+      <h3>Price Range</h3>
+      <div class="price-values">
+        <span>10,000</span>
+        <span>2,00,000</span>
+      </div>
+      <input type="range">
+    </div>
+
+    <!-- DESTINATION -->
+    <div class="section">
+      <h3>Destination</h3>
+      <div class="two-col">
+        <div>
+          <label>Country</label>
+          <input type="text">
+        </div>
+        <div>
+          <label>City</label>
+          <input type="text">
+        </div>
+      </div>
+    </div>
+
+    <!-- DURATION -->
+    <div class="section">
+      <div class="two-col">
+        <div>
+          <label>From</label>
+          <input type="date">
+        </div>
+        <div>
+          <label>To</label>
+          <input type="date">
+        </div>
+      </div>
+
+      <label>Duration</label>
+      <input type="text">
+    </div>
+
+    <!-- TRIP TYPE -->
+    <div class="section trip-section">
+      <h3 >Trip Type</h3>
+      <label><input type="checkbox"> Beach holiday</label>
+      <label><input type="checkbox"> Adventure holiday</label>
+      <label><input type="checkbox"> Honeymoon holiday</label>
+      <label><input type="checkbox"> Family Vacation Trip</label>
+      <label><input type="checkbox"> Cultural Trip holiday</label>
+      <label><input type="checkbox"> Budget Travel</label>
+    </div>
+
+    <!-- ACCOMMODATION -->
+    <div class="section accommodation-section">
+      <h3>Accommodation Type</h3>
+      <label><input type="radio" name="acc"> Hotel</label>
+      <label><input type="radio" name="acc"> Resort</label>
+      <label><input type="radio" name="acc"> Villa</label>
+      <label><input type="radio" name="acc"> Hostel</label>
+      <label><input type="radio" name="acc"> Cruise</label>
+    </div>
+
+    <!-- CITY -->
+    <div class="section city-section">
+      <h3>Departure City</h3>
+      <label><input type="radio" name="city"> Mumbai</label>
+      <label><input type="radio" name="city"> Delhi</label>
+      <label><input type="radio" name="city"> Bangalore</label>
+      <label><input type="radio" name="city"> Chennai</label>
+      <label><input type="radio" name="city"> Kolkata</label>
+    </div>
+
+    <!-- OFFER -->
+    <div class="section offer-section">
+      <h3>Special offer</h3>
+      <label><input type="radio" name="offer"> Discount</label>
+      <label><input type="radio" name="offer"> Last minute-deals</label>
+      <label><input type="radio" name="offer"> All-inclusive</label>
+    </div>
+
+    <!-- SUITABLE -->
+    <div class="section suitable-section">
+      <h3>Suitable for</h3>
+      <label><input type="radio" name="type"> Solo</label>
+      <label><input type="radio" name="type"> Couple</label>
+      <label><input type="radio" name="type"> Family</label>
+    </div>
+
+    <!-- RATING -->
+    <div class="section rating-section">
+      <h3>Ratings</h3>
+      <label><input type="radio" name="rating"> 5 star</label>
+      <label><input type="radio" name="rating"> 4 star & Above</label>
+    </div>
+
+    <button class="submit-btn">Submit</button>
+
+  </aside>
+ <!-- <div class="main-container"></div> -->
+  
+<div class="card-grid">
+
+  <!-- CARD 1 -->
+  <div class="figma-card">
+    <img src="images/paris.png" class="card-img">
+    <h3 class="card-title">Paris</h3>
+    <p class="card-days">6 Days / 5 Nights</p>
+    <p class="card-price">$1200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Paris','6 Days / 5 Nights',1200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="figma-card">
+    <img src="images/bali.png" class="card-img">
+    <h3 class="card-title">Bali</h3>
+    <p class="card-days">8 Days / 7 Nights</p>
+    <p class="card-price">$2200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Bali','8 Days / 7 Nights',2200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="figma-card">
+    <img src="images/capetown.jpg" class="card-img">
+    <h3 class="card-title">Cape Town</h3>
+    <p class="card-days">7 Days / 6 Nights</p>
+    <p class="card-price">$1800</p>
+    <button class="card-btn"onclick="bookNow
+    ('Cape Town','7 Days / 6 Nights',1800)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="figma-card">
+    <img src="images/mangolia.jpg" class="card-img">
+    <h3 class="card-title">Mangolia</h3>
+    <p class="card-days">6 Days / 5 Nights</p>
+    <p class="card-price">$1200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Mangolia','6 Days / 5 Nights',1200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="figma-card">
+    <img src="images/megalaya.jpg" class="card-img">
+    <h3 class="card-title">Megalaya</h3>
+    <p class="card-days">8 Days /7 Nights</p>
+    <p class="card-price">$2200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Megalaya','8 Days / 7 Nights',2200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 6 -->
+  <div class="figma-card">
+    <img src="images/megalaya.jpg" class="card-img">
+    <h3 class="card-title">Megalaya</h3>
+    <p class="card-days">8 Days /7 Nights</p>
+    <p class="card-price">$2200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Megalaya','8 Days /7 Nights',2200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 7-->
+  <div class="figma-card">
+    <img src="images/antarticsea.jpg" class="card-img">
+    <h3 class="card-title">Antartica Sea</h3>
+    <p class="card-days">6 Days /5 Nights</p>
+    <p class="card-price">$1200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Antartica Sea','6 Days / 5 Nights',1200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 8 -->
+  <div class="figma-card">
+    <img src="images/salicioni.jpg" class="card-img">
+    <h3 class="card-title">Megalaya</h3>
+    <p class="card-days">8 Days /7 Nights</p>
+    <p class="card-price">$2200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Megalaya','8 Days / 7 Nights',2200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 9 -->
+  <div class="figma-card">
+    <img src="images/sweden.jpg" class="card-img">
+    <h3 class="card-title">Sweden</h3>
+    <p class="card-days">7 Days /6 Nights</p>
+    <p class="card-price">$1800</p>
+    <button class="card-btn"onclick="bookNow
+    ('Sweden','7 Days / 6 Nights',1800)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+  
+   <!-- CARD 10 -->
+  <div class="figma-card">
+    <img src="images/kkumpta.jpg" class="card-img">
+    <h3 class="card-title">KKumpta</h3>
+    <p class="card-days">6 Days /5 Nights</p>
+    <p class="card-price">$1200</p>
+    <button class="card-btn"onclick="bookNow
+    ('KKumta','6 Days / 5 Nights',1200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 11 -->
+  <div class="figma-card">
+    <img src="images/india.jpg" class="card-img">
+    <h3 class="card-title">India</h3>
+    <p class="card-days">8 Days /7 Nights</p>
+    <p class="card-price">$2200</p>
+    <button class="card-btn"onclick="bookNow
+    ('India','8 Days /7 Nights',2200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 12 -->
+  <div class="figma-card">
+    <img src="images/sihsa tower.jpg" class="card-img">
+    <h3 class="card-title">Sihsa Tower</h3>
+    <p class="card-days">7 Days /6 Nights</p>
+    <p class="card-price">$1800</p>
+    <button class="card-btn"onclick="bookNow
+    ('Sihsa Tower','7 Days / 6 Nights',1800)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+     
+   <!-- CARD 13 -->
+  <div class="figma-card">
+    <img src="images/egypt.jpg" class="card-img">
+    <h3 class="card-title">Egypt</h3>
+    <p class="card-days">6 Days /5 Nights</p>
+    <p class="card-price">$1200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Egypt','6 Days / 5 Nights',1200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 14 -->
+  <div class="figma-card">
+    <img src="images/narackp.jpg" class="card-img">
+    <h3 class="card-title">Narackp</h3>
+    <p class="card-days">8 Days /7 Nights</p>
+    <p class="card-price">$2200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Narackp','8 Days /7 Nights',2200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 15 -->
+  <div class="figma-card">
+    <img src="images/edaptokan.jpg" class="card-img">
+    <h3 class="card-title">Edaptokan</h3>
+    <p class="card-days">7 Days /6 Nights</p>
+    <p class="card-price">$1800</p>
+    <button class="card-btn"onclick="bookNow
+    ('Edaptokan','7 Days / 6 Nights',1800)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 16 -->
+    <div class="figma-card">
+    <img src="images/portaguese.jpg" class="card-img">
+    <h3 class="card-title">Portaguese</h3>
+    <p class="card-days">6 Days /5 Nights</p>
+    <p class="card-price">$1200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Portaguese','6 Days / 5 Nights',1200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 17 -->
+  <div class="figma-card">
+    <img src="images/sigman.jpg" class="card-img">
+    <h3 class="card-title">Sigman</h3>
+    <p class="card-days">8 Days /7 Nights</p>
+    <p class="card-price">$2200</p>
+    <button class="card-btn"onclick="bookNow
+    ('Sigman','8 Days / 7 Nights',2200)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+
+   <!-- CARD 18 -->
+  <div class="figma-card">
+    <img src="images/throne.jpg" class="card-img">
+    <h3 class="card-title">Throne Canva</h3>
+    <p class="card-days">7 Days /6 Nights</p>
+    <p class="card-price">$1800</p>
+    <button class="card-btn"onclick="bookNow
+    ('Throne Canva','7 Days / 6 Nights',1800)">Book now</button>
+    <div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+  </div>
+  </div>
+</div>
+  
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- LOGO -->
+    <div class="footer-col logo-col">
+      <img src="images/logo.png" alt="logo">
+      <h3>Wanderwise</h3>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <ul>
+        <li>Who We Are</li>
+        <li>Our Mission</li>
+        <li>How It Works</li>
+        <li>Success</li>
+        <li>Vacations</li>
+      </ul>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li>Browse</li>
+        <li>Packages</li>
+        <li>Categories</li>
+        <li>Support</li>
+        <li>Blog</li>
+      </ul>
+    </div>
+
+    <!-- EXPLORE -->
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li>Adventure</li>
+        <li>Beach</li>
+        <li>City Tours</li>
+        <li>Family</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col contact-col">
+      <h4>Contact & Social</h4>
+      <p>123 saik Street, Chennai, TN</p>
+      <p>+91-7867980-688</p>
+      <p>Wan@wanderwisetravel.com</p>
+    </div>
+
+    <!-- RIGHT SIDE (IMAGE + SOCIAL) -->
+    <div class="footer-col right-col">
+      <img src="images/footer.jpg" alt="travel">
+
+      <p class="follow">Follow Us On :</p>
+
+      <div class="social-icons">
+        <span>▶</span>
+        <span>G</span>
+        <span>f</span>
+        <span><img src="https://cdn-icons-png.flaticon.com/128/733/733579.png" alt="twitter"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 wanderwisevacation. All rights reserved.</p>
+    <p>Terms & Conditions | Privacy Policy</p>
+  </div>
+</footer>
+
+</div>
+</div>
+<script src="script.js"></script>
+<script>
+function bookNow(title, days, price) {
+
+  const data = {
+    title: title,
+    days: days,
+    price: price,
+    tax: 0,
+    discount: 500
+  };
+
+  // store in localStorage
+  localStorage.setItem("bookingData", JSON.stringify(data));
+
+  // go to order page
+  window.location.href = "paymentsec.html";  // your payment page
+}
+</script>
+</body>
+</html>
